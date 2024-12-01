@@ -11,7 +11,11 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@ckeditor/strapi-plugin-ckeditor": "^1.0.2",
+    "@offset-dev/strapi-calendar": "^1.0.0",
     "@strapi/plugin-cloud": "5.4.2",
+    "@strapi/plugin-documentation": "^5.4.2",
+    "@strapi/plugin-graphql": "^5.4.2",
     "@strapi/plugin-users-permissions": "5.4.2",
     "@strapi/provider-upload-cloudinary": "5.4.2",
     "@strapi/strapi": "5.4.2",
@@ -20,6 +24,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
     "strapi-health-plugin": "^1.1.0",
+    "strapi-plugin-slugify": "^2.3.8",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
