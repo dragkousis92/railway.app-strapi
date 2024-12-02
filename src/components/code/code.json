@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_code_codes",
+  "info": {
+    "displayName": "Code",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Code": {
+      "type": "text"
+    },
+    "Language": {
+      "type": "enumeration",
+      "enum": [
+        "HTML"
+      ]
+    }
+  }
+}

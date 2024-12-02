@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "code_articles",
+  "info": {
+    "singularName": "code-article",
+    "pluralName": "code-articles",
+    "displayName": "Code article",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CodeZone": {
+      "type": "dynamiczone",
+      "components": [
+        "code.code",
+        "code.description"
+      ]
+    },
+    "Description": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    }
+  }
+}

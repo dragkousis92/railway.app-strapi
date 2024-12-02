@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "time_event_types",
+  "info": {
+    "singularName": "time-event-type",
+    "pluralName": "time-event-types",
+    "displayName": "TimeEventType"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  }
+}

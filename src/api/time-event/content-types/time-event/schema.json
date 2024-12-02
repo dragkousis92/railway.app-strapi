@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "time_events",
+  "info": {
+    "singularName": "time-event",
+    "pluralName": "time-events",
+    "displayName": "time Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Date": {
+      "type": "datetime"
+    },
+    "PersistAfterExpiration": {
+      "type": "boolean"
+    },
+    "Descripion": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Game",
+        "Event",
+        "Birthday",
+        "Reminder",
+        "Movie"
+      ]
+    }
+  }
+}
