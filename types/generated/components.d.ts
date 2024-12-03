@@ -15,6 +15,7 @@ export interface CodeCode extends Struct.ComponentSchema {
 export interface CodeDescription extends Struct.ComponentSchema {
   collectionName: 'components_code_descriptions';
   info: {
+    description: '';
     displayName: 'Description';
   };
   attributes: {
@@ -23,7 +24,7 @@ export interface CodeDescription extends Struct.ComponentSchema {
         'plugin::ckeditor.CKEditor',
         {
           output: 'HTML';
-          preset: 'light';
+          preset: 'rich';
         }
       >;
   };

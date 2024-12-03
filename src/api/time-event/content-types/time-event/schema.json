@@ -4,7 +4,7 @@
   "info": {
     "singularName": "time-event",
     "pluralName": "time-events",
-    "displayName": "time Event",
+    "displayName": "Time Event",
     "description": ""
   },
   "options": {
@@ -13,9 +13,9 @@
   "pluginOptions": {},
   "attributes": {
     "Date": {
-      "type": "datetime"
+      "type": "date"
     },
-    "PersistAfterExpiration": {
+    "Persist": {
       "type": "boolean"
     },
     "Descripion": {
@@ -29,6 +29,15 @@
         "Birthday",
         "Reminder",
         "Movie"
+      ]
+    },
+    "Repeat": {
+      "type": "enumeration",
+      "enum": [
+        "Daily",
+        "Weekly",
+        "Monthly",
+        "Yearly"
       ]
     }
   }

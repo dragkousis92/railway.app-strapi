@@ -26,6 +26,12 @@
         "preset": "standard"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "CodeTags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::code-tag.code-tag",
+      "inversedBy": "code_articles"
     }
   }
 }

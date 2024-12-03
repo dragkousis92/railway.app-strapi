@@ -1,7 +1,8 @@
 {
   "collectionName": "components_code_descriptions",
   "info": {
-    "displayName": "Description"
+    "displayName": "Description",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,7 +10,7 @@
       "type": "customField",
       "options": {
         "output": "HTML",
-        "preset": "light"
+        "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
     }

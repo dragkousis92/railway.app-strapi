@@ -369,6 +369,35 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAppointmentAppointment extends Struct.CollectionTypeSchema {
+  collectionName: 'appointments';
+  info: {
+    displayName: 'Appointment';
+    pluralName: 'appointments';
+    singularName: 'appointment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::appointment.appointment'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCodeArticleCodeArticle extends Struct.CollectionTypeSchema {
   collectionName: 'code_articles';
   info: {
@@ -381,6 +410,7 @@ export interface ApiCodeArticleCodeArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    CodeTags: Schema.Attribute.Relation<'manyToMany', 'api::code-tag.code-tag'>;
     CodeZone: Schema.Attribute.DynamicZone<['code.code', 'code.description']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -406,53 +436,28 @@ export interface ApiCodeArticleCodeArticle extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiCodeBlockCodeBlock extends Struct.CollectionTypeSchema {
-  collectionName: 'code_blocks';
+export interface ApiCodeTagCodeTag extends Struct.CollectionTypeSchema {
+  collectionName: 'code_tags';
   info: {
-    displayName: 'Code block';
-    pluralName: 'code-blocks';
-    singularName: 'code-block';
+    displayName: 'Code tag';
+    pluralName: 'code-tags';
+    singularName: 'code-tag';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Description: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::code-block.code-block'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiTimeEventTypeTimeEventType
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'time_event_types';
-  info: {
-    displayName: 'TimeEventType';
-    pluralName: 'time-event-types';
-    singularName: 'time-event-type';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
+    code_articles: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::code-article.code-article'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::time-event-type.time-event-type'
+      'api::code-tag.code-tag'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -467,7 +472,7 @@ export interface ApiTimeEventTimeEvent extends Struct.CollectionTypeSchema {
   collectionName: 'time_events';
   info: {
     description: '';
-    displayName: 'time Event';
+    displayName: 'Time Event';
     pluralName: 'time-events';
     singularName: 'time-event';
   };
@@ -478,7 +483,7 @@ export interface ApiTimeEventTimeEvent extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Date: Schema.Attribute.DateTime;
+    Date: Schema.Attribute.Date;
     Descripion: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -486,8 +491,11 @@ export interface ApiTimeEventTimeEvent extends Struct.CollectionTypeSchema {
       'api::time-event.time-event'
     > &
       Schema.Attribute.Private;
-    PersistAfterExpiration: Schema.Attribute.Boolean;
+    Persist: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
+    Repeat: Schema.Attribute.Enumeration<
+      ['Daily', 'Weekly', 'Monthly', 'Yearly']
+    >;
     Type: Schema.Attribute.Enumeration<
       ['Game', 'Event', 'Birthday', 'Reminder', 'Movie']
     >;
@@ -1044,9 +1052,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::appointment.appointment': ApiAppointmentAppointment;
       'api::code-article.code-article': ApiCodeArticleCodeArticle;
-      'api::code-block.code-block': ApiCodeBlockCodeBlock;
-      'api::time-event-type.time-event-type': ApiTimeEventTypeTimeEventType;
+      'api::code-tag.code-tag': ApiCodeTagCodeTag;
       'api::time-event.time-event': ApiTimeEventTimeEvent;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

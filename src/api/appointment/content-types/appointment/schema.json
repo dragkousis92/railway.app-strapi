@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "time_event_types",
+  "collectionName": "appointments",
   "info": {
-    "singularName": "time-event-type",
-    "pluralName": "time-event-types",
-    "displayName": "TimeEventType"
+    "singularName": "appointment",
+    "pluralName": "appointments",
+    "displayName": "Appointment"
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +13,9 @@
   "attributes": {
     "Title": {
       "type": "string"
+    },
+    "Date": {
+      "type": "datetime"
     }
   }
 }
