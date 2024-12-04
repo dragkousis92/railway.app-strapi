@@ -15,8 +15,10 @@ export default [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
+          'connect-src': ["'self'", 'https:'],
           'script-src': ['https://cdn.ckeditor.com'],
-          'connect-src': ['https://proxy-event.ckeditor.com']
+          'connect-src': ['https://proxy-event.ckeditor.com'],
+          'script-src-elem':["'self'", 'https:']
         },
       },
     },
