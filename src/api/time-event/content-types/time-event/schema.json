@@ -39,6 +39,9 @@
         "Monthly",
         "Yearly"
       ]
+    },
+    "stepSize": {
+      "type": "integer"
     }
   }
 }

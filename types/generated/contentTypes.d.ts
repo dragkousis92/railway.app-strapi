@@ -496,6 +496,7 @@ export interface ApiTimeEventTimeEvent extends Struct.CollectionTypeSchema {
     Repeat: Schema.Attribute.Enumeration<
       ['Daily', 'Weekly', 'Monthly', 'Yearly']
     >;
+    stepSize: Schema.Attribute.Integer;
     Type: Schema.Attribute.Enumeration<
       ['Game', 'Event', 'Birthday', 'Reminder', 'Movie']
     >;
