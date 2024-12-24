@@ -5,6 +5,7 @@ export default {
    * Simple example.
    * Every day at 1am.
    */
+  
   datesUpdate: {
     task: async({ strapi }:{strapi:Core.Strapi}) => {
 
